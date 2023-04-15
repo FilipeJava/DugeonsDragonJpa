@@ -19,7 +19,7 @@ public class Personagem {
     private Raca raca;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "ds_sexo", length = 60)
+    @Column(name = "ds_sexo", length = 40)
     private Sexo sexo;
 
     @Enumerated(EnumType.STRING)
