@@ -4,25 +4,30 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="TB_PERSONAGEM")
-@SequenceGenerator(name="personagem", sequenceName = "SQ_TB_PERSONAGEM", allocationSize = 1)
+@Table(name = "TB_PERSONAGEM")
+@SequenceGenerator(name = "personagem", sequenceName = "SQ_TB_PERSONAGEM", allocationSize = 1)
 public class Personagem {
 
     @Id
     @Column(name = "id_personagem")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personagem")
-    private Long  id;
-    @Column(name="nm_personagem", nullable = false, length = 50)
+    private Long id;
+    @Column(name = "nm_personagem", nullable = false, length = 50)
     private String nome;
     @Enumerated(EnumType.STRING)
-    @Column(name="ds_raca", length = 40)
+    @Column(name = "ds_raca", length = 40)
     private Raca raca;
+
     @Enumerated(EnumType.STRING)
-    @Column(name="ds_classe", length = 40)
+    @Column(name = "ds_sexo", length = 60)
+    private Sexo sexo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "ds_classe", length = 40)
     private Classe classe;
-    @Column(name="nr_experiencia", precision = 10, nullable = false)
+    @Column(name = "nr_experiencia", precision = 10, nullable = false)
     private int experiencia;
-    @Column(name="nr_level", precision = 10, nullable = false)
+    @Column(name = "nr_level", precision = 10, nullable = false)
     private int level;
     private Guilda guilda;
     private List<Atributo> atributos;
@@ -31,7 +36,8 @@ public class Personagem {
     public Personagem() {
     }
 
-    public Personagem(Long id, String nome, Raca raca, Classe classe, int experiencia, int level, Guilda guilda, List<Atributo> atributos, Inventario inventario) {
+    public Personagem(Long id, String nome, Raca raca, Classe classe, int experiencia, int level, Guilda guilda,
+            List<Atributo> atributos, Inventario inventario) {
         this.id = id;
         this.nome = nome;
         this.raca = raca;

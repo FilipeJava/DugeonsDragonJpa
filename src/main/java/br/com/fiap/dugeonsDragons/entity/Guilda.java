@@ -17,6 +17,7 @@ public class Guilda {
     @Enumerated(EnumType.STRING)
     @Column(name="ds_categoria", length = 40)
     private Categoria categoria;
+    
     private List<Personagem> personagens;
 
     public Guilda() {
